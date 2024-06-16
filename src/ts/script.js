@@ -27,6 +27,7 @@ class ProjectInput {
         this.titleInputElement = (this.element.querySelector("#title"));
         this.decriptionInputElement = (this.element.querySelector("#description"));
         this.peopleInputElement = (this.element.querySelector("#people"));
+        this.errorBox = document.getElementById("error");
         this.configure();
         this.attach();
     }
@@ -37,7 +38,8 @@ class ProjectInput {
         if (EnteredTitle.trim().length === 0 ||
             EnteredDecription.trim().length === 0 ||
             EnteredPeople.trim().length === 0) {
-            alert("invalid Input ! please try agian...");
+            this.errorBox.classList.add("show");
+            setTimeout(() => this.errorBox.classList.remove("show"), 2000);
         }
         else {
             return [EnteredTitle, EnteredDecription, +EnteredPeople];

@@ -21,6 +21,7 @@ class ProjectInput {
   titleInputElement: HTMLInputElement;
   decriptionInputElement: HTMLInputElement;
   peopleInputElement: HTMLInputElement;
+  errorBox: HTMLDivElement;
 
   constructor() {
     this.templateElement = <HTMLTemplateElement>(
@@ -43,6 +44,7 @@ class ProjectInput {
     this.peopleInputElement = <HTMLInputElement>(
       this.element.querySelector("#people")!
     );
+    this.errorBox = <HTMLDivElement>document.getElementById("error")!;
     this.configure();
     this.attach();
   }
@@ -56,7 +58,8 @@ class ProjectInput {
       EnteredDecription.trim().length === 0 ||
       EnteredPeople.trim().length === 0
     ) {
-      alert("invalid Input ! please try agian...");
+      this.errorBox.classList.add("show")
+      setTimeout(() => this.errorBox.classList.remove("show"), 2000);
     } else {
       return [EnteredTitle, EnteredDecription, +EnteredPeople];
     }

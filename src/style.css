@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   background: url(./bg.jpg);
+
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -16,7 +17,6 @@ body {
   width: 100vw;
 }
 #user-input {
-  /* width: 100%; */
   margin: 10% 0;
   width: 70vw;
   background: #00000071;
@@ -31,8 +31,7 @@ body {
   flex-direction: column;
   backdrop-filter: blur(20px);
 }
-form {
-}
+
 form .form-control {
   width: 100%;
   display: flex;
@@ -45,8 +44,11 @@ textarea {
   width: 60%;
   outline: none;
   border: none;
-  background: linear-gradient(20deg, rgba(255, 145, 0, 0.5), rgba(66, 38, 0, 0.5));
-  
+  background: linear-gradient(
+    20deg,
+    rgba(255, 145, 0, 0.5),
+    rgba(66, 38, 0, 0.5)
+  );
 
   backdrop-filter: blur(20px);
   color: aliceblue;
@@ -61,11 +63,54 @@ button {
   padding: 10px 0;
   text-transform: uppercase;
   color: aliceblue;
-  background: linear-gradient(20deg, rgba(223, 104, 57, 0.534), rgb(255, 145, 0));
+  background: linear-gradient(
+    20deg,
+    rgba(223, 104, 57, 0.534),
+    rgb(255, 145, 0)
+  );
   /* box-shadow: 0px 0px 10px silv  er; */
   width: 100%;
 }
-label{
+label {
   color: antiquewhite;
   text-transform: capitalize;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+#error {
+  width: calc(70vw - 4px);
+  background: rgba(255, 0, 0, 0.363);
+  /* border: rgb(255, 255, 255) 2px solid; */
+  padding: 10px;
+  color: aliceblue;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  border-bottom: none;
+}
+
+#error .line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: -5px;
+  background: #9e9e9e;
+  border-radius: 0px 0px 10px 10px;
+  left: 0;
+  animation: 2s  lineError;
+}
+@keyframes lineError {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
 }
